@@ -188,6 +188,10 @@ Utils
   color: $error-color;
 }
 
+.mt-1 {
+  margin-top: 1em;
+}
+
 $breakpoint-tablet: 768px;
 
 @media (max-width: $breakpoint-tablet) {

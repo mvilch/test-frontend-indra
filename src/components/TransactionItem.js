@@ -20,7 +20,7 @@ const TransactionItem = ({ transactions }) => {
         date = item.dateoperation;
         return (
           <>
-            <p className="m-0 date-operation text-bold">
+            <p className="m-0 date-operation text-bold mt-1">
               {formatDate(item.dateoperation)}
             </p>
             <div className="transaction-item">
