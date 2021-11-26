@@ -1,0 +1,201 @@
+$error-color: #d62828;
+$muted-color: #c7c7c7;
+$white-color: #ffffff;
+$border-color: #cccccc;
+$hover-item: #ebebeb;
+$close-color: #0265c0;
+$name-color: #00c3ff;
+
+$bgc: #e2f1ff;
+
+$borderRadiusSection: 0.8em;
+$borderRadiusBox: 0.2em;
+
+@mixin content-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin m0 {
+  margin: 0;
+}
+
+@mixin mb-1 {
+  margin-bottom: 1em;
+}
+
+@mixin text-muted {
+  color: $muted-color;
+}
+
+@mixin text-bold {
+  font-weight: bold;
+}
+
+/*--------------------------------------------------------------
+App
+--------------------------------------------------------------*/
+.main {
+  max-width: 750px;
+  margin: auto;
+}
+
+.container {
+  margin: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  column-gap: 0.5em;
+
+  .accounts,
+  .account-transactions {
+    padding: 3em 1em;
+    background-color: $bgc;
+    border-radius: $borderRadiusSection;
+    position: relative;
+  }
+}
+
+.section-white {
+  background-color: $white-color;
+  border-radius: $borderRadiusBox;
+  padding: 0.5em 1em;
+  margin-bottom: 1em;
+}
+
+.client-detail,
+.account-balance {
+  height: 260px;
+  @include content-center;
+}
+
+.account-type {
+  text-transform: uppercase;
+  font-size: 1em;
+}
+
+.close-header {
+  width: 100%;
+  background-color: $close-color;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  border-top-left-radius: $borderRadiusSection;
+  border-top-right-radius: $borderRadiusSection;
+  box-sizing: border-box;
+  padding: 0.4em;
+}
+
+.btn-close {
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.3em 0.75em;
+  font-size: 0.8em;
+  border-radius: 2em;
+  color: $close-color;
+  background-color: $white-color;
+  border-color: $white-color;
+}
+
+.account-item,
+.transaction-item {
+  display: flex;
+  flex-direction: row;
+  padding: 1em 0.3em;
+  border-radius: $borderRadiusBox;
+  align-items: center;
+}
+
+.transaction-item {
+  border-bottom: 1px solid $border-color;
+}
+
+.account-item:hover {
+  background-color: $hover-item;
+  cursor: pointer;
+}
+
+.account-item-details,
+.account-item-balance,
+.transaction-item-details,
+.transaction-item-balance {
+  flex: 1;
+}
+
+.account-item-balance,
+.transaction-item-balance {
+  text-align: right;
+}
+
+.transaction-container {
+  margin-bottom: 1em;
+}
+
+.user {
+  font-size: 2em;
+}
+
+.welcome {
+  font-size: 1.5em;
+}
+
+.account-detail-name,
+.account-detail-balance {
+  font-size: 1.3em;
+}
+
+/*--------------------------------------------------------------
+Utils
+--------------------------------------------------------------*/
+
+.m-0 {
+  @include m0;
+}
+
+.color-grey {
+  @include text-muted;
+}
+
+.text-help {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.text-bold {
+  @include text-bold;
+}
+
+.account-name {
+  color: $name-color;
+  font-weight: bold;
+}
+
+.text-error {
+  color: $error-color;
+}
+
+$breakpoint-tablet: 768px;
+
+@media (max-width: $breakpoint-tablet) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr;
+  }
+  .accounts {
+    @include mb-1;
+  }
+}
